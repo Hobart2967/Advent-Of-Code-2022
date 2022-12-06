@@ -22,7 +22,50 @@
         "<node_internals>/**"
       ],
       "args": ["input.txt"],
-      "program": "${workspaceFolder}/day-01/index.js"
+      "program": "${workspaceFolder}/day-02/index.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Day03",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "args": ["input.txt"],
+      "program": "${workspaceFolder}/day-03/index.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Day04",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "args": ["input.txt"],
+      //"args": ["sample.txt"],
+      "program": "${workspaceFolder}/day-04/index.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Day05",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "args": ["input.txt"],
+      //"args": ["sample.txt"],
+      "program": "${workspaceFolder}/day-05/index.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Day06",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "args": ["input.txt"],
+      //"args": ["sample.txt"],
+      "program": "${workspaceFolder}/day-06/index.js"
     }
   ]
 }
