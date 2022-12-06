@@ -1,5 +1,6 @@
 {
   "conventionalCommits.scopes": [
-    "day1"
+    "day1",
+    "day2"
   ]
 }

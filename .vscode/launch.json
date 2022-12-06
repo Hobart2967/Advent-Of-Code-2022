@@ -7,7 +7,17 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Launch Program",
+      "name": "Launch Day01",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "args": ["input.txt"],
+      "program": "${workspaceFolder}/day-01/index.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Day02",
       "skipFiles": [
         "<node_internals>/**"
       ],
