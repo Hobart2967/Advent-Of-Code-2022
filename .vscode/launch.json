@@ -63,9 +63,20 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
+      //"args": ["input.txt"],
+      "args": ["sample.txt"],
+      "program": "${workspaceFolder}/day-06/index.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Launch Day07",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
       "args": ["input.txt"],
       //"args": ["sample.txt"],
-      "program": "${workspaceFolder}/day-06/index.js"
+      "program": "${workspaceFolder}/day-07/index.js"
     }
   ]
 }
