@@ -85,8 +85,8 @@
       "skipFiles": [
         "<node_internals>/**"
       ],
-      //"args": ["input.txt"],
-      "args": ["sample.txt"],
+      "args": ["input.txt"],
+      //"args": ["sample.txt"],
       "runtimeExecutable": "/home/marco/.nvm/versions/node/v16.15.1/bin/node",
       "program": "${workspaceFolder}/day-08/index.js"
     }

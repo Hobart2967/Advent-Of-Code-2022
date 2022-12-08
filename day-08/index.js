@@ -27,7 +27,7 @@ function loadFile() {
     .split('\n')
     .map(x => x.split('').map(x => parseInt(x)));
 
-  const coordsVisible = [];
+  const coords = [];
 
 
   function checkEdge(x, y, start, max, getValue, change) {
@@ -38,7 +38,6 @@ function loadFile() {
 
       const value = matrix[checkY][checkX];
       if (value >= initialValue) {
-
         return false;
       }
     }
@@ -62,6 +61,48 @@ function loadFile() {
     return checkEdge(x, y, 0, x, (currentX) => ([currentX, y]), x => x + 1);
   }
 
+  function scoreToTop(x, y) {
+    const elements = matrix.slice(0, y).map(xItems => xItems[x]);
+    elements.reverse();
+    const index = elements.findIndex(currentX => currentX >= matrix[y][x]);
+    if (index < 0)  {
+      return y;
+    }
+
+    return index + 1;
+  }
+
+  function scoreToLeft(x, y) {
+    const elements = matrix[y].slice(0, x);
+    elements.reverse();
+    const index = elements.findIndex(currentX => currentX >= matrix[y][x]);
+    if (index < 0)  {
+      return x;
+    }
+
+    return index + 1;
+  }
+
+  function scoreToRight(x, y) {
+    const elements = matrix[y].slice(x + 1);
+    const index = elements.findIndex(currentX => currentX >= matrix[y][x]);
+    if (index < 0)  {
+      return matrix[y].length - x - 1;
+    }
+
+    return index + 1;
+  }
+
+  function scoreToBottom(x, y) {
+    const elements = matrix.slice(y + 1).map(xItems => xItems[x]);
+    const index = elements.findIndex(currentX => currentX >= matrix[y][x]);
+    if (index < 0)  {
+      return matrix.length - y - 1;
+    }
+
+    return index + 1;
+  }
+
   const stop = new Date(Date.now()).getTime();
   for (let y = 0; y < matrix.length; y++) {
     for (let x = 0; x < matrix[y].length; x++) {
@@ -72,9 +113,21 @@ function loadFile() {
         fromBottom(x, y)
       ];
 
-      if (edgesVisible.some(x => x > 0)) {
-        coordsVisible.push({x, y});
-      }
+      const scores = {
+        top: scoreToTop(x, y),
+        left: scoreToLeft(x, y),
+        right: scoreToRight(x, y),
+        bottom: scoreToBottom(x, y),
+      };
+
+      coords.push({
+        value: matrix[y][x],
+        x,
+        y,
+        visible: edgesVisible.some(x => x),
+        score: Object.values(scores).reduce((cur, prev) => prev*cur, 1),
+        scores,
+      });
     }
   }
 
@@ -82,5 +135,6 @@ function loadFile() {
 
   logLine();
 
-  console.log(`Counted ${coordsVisible.length} trees visible in ${new Date(Date.now()).getTime() - stop} milliseconds: `);
+  console.log(`Counted ${coords.filter(x => x.visible).length} trees visible in ${new Date(Date.now()).getTime() - stop} milliseconds: `);
+  console.log(`Highest Tree Score is ${Math.max(...coords.map(x => x.score))} `);
 }
