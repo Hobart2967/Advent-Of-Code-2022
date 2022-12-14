@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <style type="text/css">
+      .flex {
+        display: flex;
+      }
+
+      #coords {
+        padding: 20px;
+      }
+
+      #grid {
+        display: flex;
+        width: calc(16px * 25);
+        height: calc(16px * 25);
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+      }
+
+      #grid > * {
+        border: 1px solid #ccc;
+        background: #efefef;
+        min-width: 16px;
+        min-height: 16px;
+        box-sizing: border-box;
+        vertical-align: middle;
+        line-height: 16px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex">
+      <div>
+        <div id="currentOp"></div>
+        <div id="grid">
+
+        </div>
+      </div>
+      <div id="coords">
+
+      </div>
+    </div>
+
+<textarea id="file">
+R 5
+U 8
+L 8
+D 3
+R 17
+D 10
+L 25
+U 20
+</textarea>
+<button id="btn">xy</button>
+<script src="./index.js"></script>
+  </body>
+</html>
