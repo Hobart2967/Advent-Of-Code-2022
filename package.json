@@ -5,6 +5,7 @@
   "author": "Hobart2967 <hobart@codewyre.net>",
   "license": "MIT",
   "dependencies": {
-    "node-dijkstra": "^2.5.0"
+    "node-dijkstra": "^2.5.0",
+    "chalk": "4"
   }
 }
