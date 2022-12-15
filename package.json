@@ -3,5 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "author": "Hobart2967 <hobart@codewyre.net>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "node-dijkstra": "^2.5.0"
+  }
 }
